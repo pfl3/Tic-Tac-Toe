@@ -2,13 +2,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 
 }
 html {
     font-size: 62.5%;
 }
 header {
-    background: slateblue;
+    background: rgba(105, 90, 205, 0.151);
     width: 100vw;
     height: 150px;
+}
+.gameboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+   
+    height: 800px;
+    width: 800px;
+    margin: 0 auto;
+}
+.tileStyle {
+    
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.133);
+    background: white;
+}
+.color {
+    background-image: url(./Images/circle_FILL0_wght400_GRAD0_opsz48.svg) ;
+    background-repeat: no-repeat;
+    background-position: center;
 }
