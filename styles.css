@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'middleearth-Font';
+    src: url("Middleearth-ao6m.ttf") format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,15 +13,25 @@
 html {
     font-size: 62.5%;
 }
+
+    /* font-family: 'Beau Rivage', cursive; */
+
 header {
     background: rgba(105, 90, 205, 0.151);
     width: 100vw;
-    height: 150px;
+    height: 175px;
+    margin-bottom: 2rem;
 }
+header p {
+    font-family: middleearth-Font;
+    font-size: 8.4rem;
+}
+
 .gameboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
+    
    
     height: 800px;
     width: 800px;
@@ -29,7 +44,7 @@ header {
     background: white;
 }
 .color {
-    background-image: url(./Images/circle_FILL0_wght400_GRAD0_opsz48.svg) ;
+    background-image: url(./img/shirepump.png) ;
     background-repeat: no-repeat;
     background-position: center;
 }
