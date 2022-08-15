@@ -17,20 +17,106 @@ html {
     /* font-family: 'Beau Rivage', cursive; */
 
 header {
-    background: rgba(105, 90, 205, 0.151);
+    
     width: 100vw;
     height: 175px;
-    margin-bottom: 2rem;
-}
-header p {
-    font-family: middleearth-Font;
-    font-size: 8.4rem;
+    
+    
+    position: relative;
 }
 
+.main-title {
+    text-align: center;
+    
+   font-family: middleearth-Font;
+    font-size: 10.6rem;
+    color: rgb(233, 207, 170);
+    text-shadow: gold 0px 0px 20px;
+    -webkit-text-stroke: 2px gold
+    
+    
+}
+
+.title {
+    color: white
+}
+.header-title-container {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+   
+    
+}
+
+.in {
+    font-size: 4.5rem;
+}
+
+
+.base-background {
+    background: black;
+    z-index: -1000;
+    height: 100%;
+
+}
+.header-background {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    
+    height: 175px;
+    width: 100%;
+    background: black;
+    
+    
+}
+.header-background img {
+    height: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+    opacity: .6;
+}
+.ttt-div {
+
+position: absolute;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+width: 175px;
+
+color: white;
+top: 0;
+left: 20px;
+font-size: 4.6rem;
+font-weight: 600;
+height: 175px;
+z-index: 1500;
+
+
+  
+}
+.ttt-div p {
+    letter-spacing: .3rem;
+}
+
+
 .gameboard {
+    padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
+    z-index: 100;
     
    
     height: 800px;
@@ -38,13 +124,101 @@ header p {
     margin: 0 auto;
 }
 .tileStyle {
-    
+    z-index: 100;
     border-radius: 5px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.133);
-    background: white;
+    background: burlywood;
+    border: 2px black solid;
+
 }
 .color {
     background-image: url(./img/shirepump.png) ;
     background-repeat: no-repeat;
     background-position: center;
+}
+.background-image-main {
+    background-image: url(./img/Middleearthmap.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main {
+    position: relative;
+}
+.main-fade-top {
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));;
+    height: 150px;
+    width: 100%;
+    
+    z-index: 50;
+}
+.main-fade-bottom {
+    position: absolute;
+    bottom: 0;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        ;
+        height: 150px;
+        width: 100%;
+    
+        z-index: 50;
+
+}
+footer {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: black;
+    height: 53px
+    
+}
+footer p {
+    color: rgb(177, 177, 177);
+}
+.credit-one {
+    display: flex;
+    gap: 1rem;
+}
+.credit-one a {
+    color: darkgoldenrod;
+}
+.credit-two {
+    display: flex;
+    gap: 1rem;
+}
+.credit-two a {
+    color: darkgoldenrod;
+}
+@-webkit-keyframes glow-player-one  {
+    to {
+        
+        -webkit-box-shadow: 0 0 5px gold;
+        -moz-box-shadow: 0 0 5px gold;
+        box-shadow: 0 0 5px gold;
+    }
+}
+@-webkit-keyframes glow-player-two {
+    to {
+        
+        -webkit-box-shadow: 0 0 5px red;
+        -moz-box-shadow: 0 0 5px red;
+        box-shadow: 0 0 5px red;
+    }
+}
+
+.player-one-glow {
+    
+    border: 1px solid transparent;
+    -webkit-animation: glow-player-one 1.0s infinite alternate;
+    -webkit-transition: border 1.0s linear, box-shadow 1.0s linear;
+    -moz-transition: border 1.0s linear, box-shadow 1.0s linear;
+    transition: border 1.0s linear, box-shadow 1.0s linear;
+    
+}
+.tileStyle {
+border: 1px solid transparent;
+    -webkit-animation: glow-player-two 1.0s infinite alternate;
+    -webkit-transition: border 1.0s linear, box-shadow 1.0s linear;
+    -moz-transition: border 1.0s linear, box-shadow 1.0s linear;
+    transition: border 1.0s linear, box-shadow 1.0s linear;
 }
