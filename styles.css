@@ -84,7 +84,7 @@ gap: 2rem;
     height: 100%;
     padding: 1rem;
     border-radius: 20px;
-    opacity: .6;
+    opacity: .7;
 }
 .ttt-div {
 
@@ -107,6 +107,7 @@ z-index: 1500;
   
 }
 .ttt-div p {
+    font-family: 'Righteous', cursive;
     letter-spacing: .3rem;
 }
 
@@ -122,17 +123,20 @@ z-index: 1500;
     height: 800px;
     width: 800px;
     margin: 0 auto;
+    
+   
 }
 .tileStyle {
     z-index: 100;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.133);
-    background: burlywood;
+    background-image: url(./img/frame\ 6\ dark.jpg) ;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    
     border: 2px black solid;
 
 }
 .color {
-    background-image: url(./img/shirepump.png) ;
+    background-image: url(./img/autumn\ 17.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -161,6 +165,63 @@ main {
         width: 100%;
     
         z-index: 50;
+
+}
+.player-one-UI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    height: 475px;
+    left: 170px;
+    top: 30px;
+    color: white;
+    
+    z-index: 3000;
+
+    
+}
+.player-two-UI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    height: 475px;
+    right: 170px;
+    top: 30px;
+    color: white;
+    
+
+z-index: 3000;
+}
+.player-title {
+    font-family: middleearth-Font;
+    font-size: 2.4rem;
+    text-decoration: underline;
+    color: rgb(233, 207, 170);
+        text-shadow: gold 0px 0px 20px;
+        -webkit-text-stroke: 2px gold;
+    margin-top: 5rem;
+}
+.dynamic-name {
+    font-family: middleearth-Font;
+    font-size: 6.8rem;
+   
+}
+.dynamic-name-p1 {
+    color: aqua;
+}
+.dynamic-name-p2 {
+    color: red;
+}
+.random-tile {
+    margin-top: auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 110px black;
 
 }
 footer {
@@ -192,17 +253,17 @@ footer p {
 @-webkit-keyframes glow-player-one  {
     to {
         
-        -webkit-box-shadow: 0 0 5px gold;
-        -moz-box-shadow: 0 0 5px gold;
-        box-shadow: 0 0 5px gold;
+        -webkit-box-shadow: 0 0 30px gold;
+        -moz-box-shadow: 0 0 30px gold;
+        box-shadow: 0 0 30px gold;
     }
 }
 @-webkit-keyframes glow-player-two {
     to {
         
-        -webkit-box-shadow: 0 0 5px red;
-        -moz-box-shadow: 0 0 5px red;
-        box-shadow: 0 0 5px red;
+        -webkit-box-shadow: 0 0 30px red;
+        -moz-box-shadow: 0 0 30px red;
+        box-shadow: 0 0 30px red;
     }
 }
 
@@ -215,10 +276,53 @@ footer p {
     transition: border 1.0s linear, box-shadow 1.0s linear;
     
 }
-.tileStyle {
+.player-two-glow {
 border: 1px solid transparent;
     -webkit-animation: glow-player-two 1.0s infinite alternate;
     -webkit-transition: border 1.0s linear, box-shadow 1.0s linear;
     -moz-transition: border 1.0s linear, box-shadow 1.0s linear;
     transition: border 1.0s linear, box-shadow 1.0s linear;
+}
+.start-game-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background: rgb(0, 0, 0);
+   position: absolute;
+   top: 59%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 2000;
+   height: 80%;
+   width: 100%;
+   z-index: 4000;
+   display: none;
+   
+    
+}
+@-webkit-keyframes play-button {
+    to {
+
+        -webkit-box-shadow: 0 0 100px gold;
+        -moz-box-shadow: 0 0 100px gold;
+        box-shadow: 0 0 100px gold;
+    }
+}
+.play-button {
+ width: 350px;
+ height: 350px;
+ background: none;
+ border: none;
+ border-radius: 50%;
+ font-family: middleearth-Font;
+ border: 5px gold solid;
+ color: rgb(233, 207, 170);
+ text-shadow: gold 0px 0px 20px;
+ -webkit-text-stroke: 2px gold;
+ font-size: 8.4rem;
+ -webkit-animation: play-button 3.0s infinite alternate;
+ -webkit-transition: border 3.0s linear, box-shadow 3.0s linear;
+ -moz-transition: border 3.0s linear, box-shadow 3.0s linear;
+ transition: border 3.0s linear, box-shadow 3.0s linear;
+
 }
