@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="./app.js" defer></script>
     <title>TicTacToe Project</title>
@@ -12,9 +18,9 @@
   <body>
     <header>
       <div class="ttt-div">
-        <p class="tic">Tic</p>
-        <p class="tac">Tac</p>
-        <p class="toe">Toe</p>
+        <p class="tic">tic</p>
+        <p class="tac">tac</p>
+        <p class="toe">toe</p>
       </div>
       <div class="base-background"></div>
       <div class="header-title-container">
@@ -35,8 +41,34 @@
         /><img src="./img/autumn 11.jpeg" alt="" />
       </div>
     </header>
-    <div class="main-fade-top"></div>
+    <!-- Start game modal & button -->
+    <div class="start-game-modal">
+      <button class="play-button">PLAY</button>
+    </div>
     <main class="background-image-main">
+      <div class="main-fade-top"></div>
+      <!-- Player one UI -->
+      <div class="player-one-UI">
+        <p class="player-title">Player one</p>
+        <p class="dynamic-name dynamic-name-p1">Bilbo</p>
+        <img
+          class="random-tile player-1-random"
+          src="./img/autumn 11.jpeg"
+          alt=""
+        />
+      </div>
+      <!-- Player two UI -->
+      <div class="player-two-UI">
+        <p class="player-title">Player Two</p>
+        <p class="dynamic-name dynamic-name-p2">Frodo</p>
+        <img
+          class="random-tile player-2-random"
+          src="./img/autumn 9.jpeg"
+          alt=""
+        />
+      </div>
+
+      <!-- Gameboard container -->
       <div class="gameboard-container">
         <div class="gameboard"></div>
       </div>
