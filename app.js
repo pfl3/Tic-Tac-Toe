@@ -8,20 +8,21 @@ const makeGameBoard = (() => {
       tile.setAttribute("tileID", [i]);
       tile.classList.add("tileStyle", "grid-interact");
       gameboardDiv.appendChild(tile);
-      tileArr.push(tile[i]);
+      tileArr.push(tile);
     }
   }
+
   return {
-    tileBoard: makeBoard,
-    tileArray: tileArr,
+    tileArr,
+    makeBoard,
   };
 })();
-makeGameBoard.tileBoard();
 
-// Factory functions START
-// ////////////////////////////////////////////////
+makeGameBoard.makeBoard();
+
 // PLAYER FACTORY
-const PicIndexArray = [];
+// A player object is created "Bilbo" and "Frodo". A random image is assigned to each player that will serve as "X and O". This is the only part of the code that works well for me.
+let PicIndexArray = [];
 const playerFactory = function (name, active) {
   return {
     name,
@@ -50,61 +51,65 @@ const playerFactory = function (name, active) {
       document.querySelector(`.player-1-random`).src =
         randomPicArray[tilePicIndex1];
       PicIndexArray.push(randomPicArray[tilePicIndex1]);
-
       randomPicArray.splice(tilePicIndex1, 1);
-      // /////
+
       tilePicIndex2 = [Math.floor(Math.random() * randomPicArray.length)];
       document.querySelector(`.player-2-random`).src =
         randomPicArray[tilePicIndex2];
       PicIndexArray.push(randomPicArray[tilePicIndex2]);
-      console.log(PicIndexArray);
     },
   };
 };
+
+// PLAY/START GAME
+// I don't know how to put the new player objects (bilbo and frodo) into the function and return them. If I put them inside the function and try to return them I either get errors or undefined no matter what I do. Ideally I'd like the player objects to be created when the play button is clicked and keep them out of the global scope.
 const bilbo = playerFactory("Bilbo", true);
 const frodo = playerFactory("Frodo", false);
-// PLAY/START GAME
-
 const startGame = function () {
   const playBtn = document.querySelector(".play-button");
   const modal = document.querySelector(".start-game-modal");
   playBtn.addEventListener("click", function () {
-    // const bilbo = playerFactory("Bilbo", true);
-    // const frodo = playerFactory("Frodo", false);
     bilbo.generateTilePic();
     modal.classList.add("hidden");
   });
 };
-const play = startGame();
 
-// Game Logic
-const bilbosClicks = [];
-const frodosClicks = [];
-
-document.querySelectorAll(".grid-interact").forEach((tile) => {
-  tile.addEventListener("click", (e) => {
-    if (bilbo.active) {
-      let tileId = Number(e.target.getAttribute("tileID"));
-      bilbosClicks.push(tileId);
-      console.log(`Bilbo clicked tile ${tileId}`, bilbosClicks);
-
-      const name1 = `<img class="dynamic-tile-style" src="${PicIndexArray[0]}" '>`;
-      tile.innerHTML = name1;
-      checkWinner();
-      bilbo.active = false;
-      frodo.active = true;
-    } else if (frodo.active) {
-      let tileId = Number(e.target.getAttribute("tileID"));
-      frodosClicks.push(tileId);
-      console.log(`Frodo clicked tile ${tileId}`, frodosClicks);
-      const name2 = `<img class="dynamic-tile-style" src="${PicIndexArray[1]}" '>`;
-      tile.innerHTML = name2;
-      frodo.active = false;
-      bilbo.active = true;
-    }
-
-    // console.log(`You clicked tile ${ID}`);
+// TILE CLICK FUNCTION
+// When a player clicks a tile their assigned picture will be placed on that tile. A class denoting which player clicked the tile will also be set. The active player is then switched. Yes...I know...my code is not "dry".
+const tileClick = function () {
+  document.querySelectorAll(".grid-interact").forEach((tile) => {
+    tile.addEventListener("click", (e) => {
+      console.log("clicked");
+      if (bilbo.active) {
+        const name1 = `<img class="dynamic-tile-style" src="${PicIndexArray[0]}" '>`;
+        e.target.classList.add("p1-clicked");
+        tile.innerHTML = name1;
+        bilbo.active = false;
+        frodo.active = true;
+      } else if (frodo.active) {
+        e.target.classList.add("p2-clicked");
+        const name2 = `<img class="dynamic-tile-style" src="${PicIndexArray[1]}" '>`;
+        tile.innerHTML = name2;
+        frodo.active = false;
+        bilbo.active = true;
+      }
+    });
   });
-});
+};
 
-const checkWinner = function () {};
+tileClick();
+startGame();
+
+// ----------------------------------------------------------
+const checkWinner = function () {
+  const winCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+};
