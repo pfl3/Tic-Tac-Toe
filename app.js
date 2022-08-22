@@ -1,5 +1,6 @@
 // Gameboard module pattern START
 const makeGameBoard = (() => {
+  const gameActive = true;
   const tileArr = [];
   const gameboardDiv = document.querySelector(".gameboard");
   function makeBoard() {
@@ -11,17 +12,16 @@ const makeGameBoard = (() => {
       tileArr.push(tile);
     }
   }
-
   return {
     tileArr,
+    gameActive,
     makeBoard,
   };
 })();
-
 makeGameBoard.makeBoard();
 
 // PLAYER FACTORY
-// A player object is created "Bilbo" and "Frodo". A random image is assigned to each player that will serve as "X and O". This is the only part of the code that works well for me.
+
 let PicIndexArray = [];
 const playerFactory = function (name, active) {
   return {
@@ -61,35 +61,54 @@ const playerFactory = function (name, active) {
   };
 };
 
-// PLAY/START GAME
-// I don't know how to put the new player objects (bilbo and frodo) into the function and return them. If I put them inside the function and try to return them I either get errors or undefined no matter what I do. Ideally I'd like the player objects to be created when the play button is clicked and keep them out of the global scope.
 const bilbo = playerFactory("Bilbo", true);
 const frodo = playerFactory("Frodo", false);
 const startGame = function () {
   const playBtn = document.querySelector(".play-button");
   const modal = document.querySelector(".start-game-modal");
+  const activeBilbo = document.querySelector(".player-1-random");
   playBtn.addEventListener("click", function () {
     bilbo.generateTilePic();
     modal.classList.add("hidden");
+    activeBilbo.classList.add("player-one-active");
   });
 };
 
-// TILE CLICK FUNCTION
-// When a player clicks a tile their assigned picture will be placed on that tile. A class denoting which player clicked the tile will also be set. The active player is then switched. Yes...I know...my code is not "dry".
 const tileClick = function () {
+  const activeBilboStyle = document.querySelector(".player-1-random");
+  const activeFrodoStyle = document.querySelector(".player-2-random");
   document.querySelectorAll(".grid-interact").forEach((tile) => {
     tile.addEventListener("click", (e) => {
-      console.log("clicked");
       if (bilbo.active) {
         const name1 = `<img class="dynamic-tile-style" src="${PicIndexArray[0]}" '>`;
         e.target.classList.add("p1-clicked");
         tile.innerHTML = name1;
+        if (checkBilbo()) {
+          const winMessage = document.querySelector(".dynamic-ending");
+          winMessage.textContent = "Bilbo Wins!";
+          document
+            .querySelector(".game-finished-modal")
+            .classList.remove("hidden");
+        }
+        e.target.classList.add("event-cancel");
+        activeBilboStyle.classList.remove("player-one-active");
+        activeFrodoStyle.classList.add("player-two-active");
         bilbo.active = false;
         frodo.active = true;
       } else if (frodo.active) {
         e.target.classList.add("p2-clicked");
         const name2 = `<img class="dynamic-tile-style" src="${PicIndexArray[1]}" '>`;
         tile.innerHTML = name2;
+        if (checkFrodo()) {
+          const winMessage = document.querySelector(".dynamic-ending");
+          winMessage.textContent = "Frodo Wins!";
+          document
+            .querySelector(".game-finished-modal")
+            .classList.remove("hidden");
+        }
+        e.target.classList.add("event-cancel");
+        activeBilboStyle.classList.add("player-one-active");
+        activeFrodoStyle.classList.remove("player-two-active");
         frodo.active = false;
         bilbo.active = true;
       }
@@ -100,8 +119,9 @@ const tileClick = function () {
 tileClick();
 startGame();
 
-// ----------------------------------------------------------
-const checkWinner = function () {
+const checkBilbo = function () {
+  const bilboDivs = [];
+
   const winCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -112,4 +132,64 @@ const checkWinner = function () {
     [0, 4, 8],
     [2, 4, 6],
   ];
+  makeGameBoard.tileArr.forEach((div) => {
+    if (bilbo.active && div.classList.contains("p1-clicked")) {
+      let tileNum = div.getAttribute("tileID");
+      bilboDivs.push(tileNum);
+    }
+  });
+  const bilboToNum = bilboDivs.map((str) => {
+    return Number(str);
+  });
+  for (const arr of winCombos) {
+    let allMatch = true;
+    for (const el of arr) {
+      if (!bilboToNum.includes(el)) {
+        allMatch = false;
+        break;
+      }
+    }
+    if (allMatch) return true;
+  }
+  return false;
 };
+const checkFrodo = function () {
+  const frodoDivs = [];
+  const winCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  makeGameBoard.tileArr.forEach((div) => {
+    if (frodo.active && div.classList.contains("p2-clicked")) {
+      let tileNum = div.getAttribute("tileID");
+      frodoDivs.push(tileNum);
+    }
+  });
+  const frodoToNum = frodoDivs.map((str) => {
+    return Number(str);
+  });
+  for (const arr of winCombos) {
+    let allMatch = true;
+    for (const el of arr) {
+      if (!frodoToNum.includes(el)) {
+        allMatch = false;
+        break;
+      }
+    }
+    if (allMatch) return true;
+  }
+  return false;
+};
+const exitGame = function () {
+  let exitBtn = document.querySelector(".reset");
+  exitBtn.addEventListener("click", function () {
+    window.location.reload();
+  });
+};
+exitGame();
