@@ -69,12 +69,14 @@ const startGame = function () {
   const activeBilbo = document.querySelector(".player-1-random");
   playBtn.addEventListener("click", function () {
     bilbo.generateTilePic();
+
     modal.classList.add("hidden");
     activeBilbo.classList.add("player-one-active");
   });
 };
 
 const tileClick = function () {
+  const totalTilesClicked = [];
   const activeBilboStyle = document.querySelector(".player-1-random");
   const activeFrodoStyle = document.querySelector(".player-2-random");
   document.querySelectorAll(".grid-interact").forEach((tile) => {
@@ -83,6 +85,7 @@ const tileClick = function () {
         const name1 = `<img class="dynamic-tile-style" src="${PicIndexArray[0]}" '>`;
         e.target.classList.add("p1-clicked");
         tile.innerHTML = name1;
+        totalTilesClicked.push("0");
         if (checkBilbo()) {
           const winMessage = document.querySelector(".dynamic-ending");
           winMessage.textContent = "Bilbo Wins!";
@@ -90,6 +93,7 @@ const tileClick = function () {
             .querySelector(".game-finished-modal")
             .classList.remove("hidden");
         }
+        checkTie(totalTilesClicked);
         e.target.classList.add("event-cancel");
         activeBilboStyle.classList.remove("player-one-active");
         activeFrodoStyle.classList.add("player-two-active");
@@ -99,6 +103,7 @@ const tileClick = function () {
         e.target.classList.add("p2-clicked");
         const name2 = `<img class="dynamic-tile-style" src="${PicIndexArray[1]}" '>`;
         tile.innerHTML = name2;
+        totalTilesClicked.push("0");
         if (checkFrodo()) {
           const winMessage = document.querySelector(".dynamic-ending");
           winMessage.textContent = "Frodo Wins!";
@@ -106,6 +111,7 @@ const tileClick = function () {
             .querySelector(".game-finished-modal")
             .classList.remove("hidden");
         }
+        checkTie(totalTilesClicked);
         e.target.classList.add("event-cancel");
         activeBilboStyle.classList.add("player-one-active");
         activeFrodoStyle.classList.remove("player-two-active");
@@ -118,6 +124,13 @@ const tileClick = function () {
 
 tileClick();
 startGame();
+const checkTie = function (arr) {
+  if (arr.length == 9 && !checkBilbo() && !checkFrodo()) {
+    const winMessage = document.querySelector(".dynamic-ending");
+    winMessage.textContent = "Tie!";
+    document.querySelector(".game-finished-modal").classList.remove("hidden");
+  }
+};
 
 const checkBilbo = function () {
   const bilboDivs = [];
