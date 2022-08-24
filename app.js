@@ -22,7 +22,7 @@ makeGameBoard.makeBoard();
 
 // PLAYER FACTORY
 
-let PicIndexArray = [];
+const PicIndexArray = [];
 const playerFactory = function (name, active) {
   return {
     name,
@@ -131,10 +131,8 @@ const checkTie = function (arr) {
     document.querySelector(".game-finished-modal").classList.remove("hidden");
   }
 };
-
 const checkBilbo = function () {
   const bilboDivs = [];
-
   const winCombos = [
     [0, 1, 2],
     [3, 4, 5],
