@@ -1,446 +1,379 @@
 @font-face {
-    font-family: 'middleearth-Font';
-    src: url("Middleearth-ao6m.ttf") format('truetype');
+  font-family: "middleearth-Font";
+  src: url("Middleearth-ao6m.ttf") format("truetype");
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 140px;
-    position: relative;
-    background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 140px;
+  position: relative;
+  background: black;
 }
 .main-title {
-    text-align: center;
-    font-family: middleearth-Font;
-    font-size: 8.6rem;
-    color: rgb(233, 207, 170);
-    text-shadow: gold 0px 0px 20px;
-    -webkit-text-stroke: 2px gold;
-    margin: 1rem;
-    
+  text-align: center;
+  font-family: middleearth-Font;
+  font-size: 8.6rem;
+  color: rgb(233, 207, 170);
+  text-shadow: gold 0px 0px 20px;
+  -webkit-text-stroke: 2px gold;
+  margin: 1rem;
 }
 .title {
-    color: white
+  color: white;
 }
 .header-title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    position: absolute;
-    top: 0;
-    z-index: 1000;
-    max-width: 1480px;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  max-width: 1480px;
+  height: 100%;
 }
-    
-    
-    
-    
-    
+
 .in {
-    font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 .base-background {
-    background: black;
-    z-index: -1000;
-    height: 100%;
+  background: black;
+  z-index: -1000;
+  height: 100%;
 }
 .header-background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    height: 140px;
-    
-    max-width: 1440px;
-    background: black;
-    
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  height: 140px;
+
+  max-width: 1440px;
+  background: black;
 }
 .header-background img {
-    height: 100%;
-    padding: 1rem;
-    border-radius: 20px;
-    opacity: .7;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 20px;
+  opacity: 0.7;
 }
 .ttt-div {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    max-width: 140px;
-    /* height: 140px; */
-    color: white;
-    top: 0;
-    left: 20px;
-    font-size: 3.6rem;
-    font-weight: 600;
-    z-index: 1500;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 140px;
+  /* height: 140px; */
+  color: white;
+  top: 0;
+  left: 20px;
+  font-size: 3.6rem;
+  font-weight: 600;
+  z-index: 1500;
 }
 .ttt-div p {
-    font-family: 'Righteous', cursive;
-    letter-spacing: .3rem;
+  font-family: "Righteous", cursive;
+  letter-spacing: 0.3rem;
 }
 .gameboard {
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
-    z-index: 100;
-    height: 640px;
-    width: 640px;
-    margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  z-index: 100;
+  height: 640px;
+  width: 640px;
+  margin: 0 auto;
 }
 .tileStyle {
-    position: relative;
-    z-index: 100;
-    border-radius: 5px;
-    background-image: url(./img/darker\ frame.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    border: 2px black solid;
+  position: relative;
+  z-index: 100;
+  border-radius: 5px;
+  background-image: url(./img/darker\ frame.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border: 2px black solid;
 }
 .tileStyle:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .dynamic-tile-style {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 190px;
-    height: 190px;
-    border-radius: 5px;
-    outline: 2px black solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 190px;
+  border-radius: 5px;
+  outline: 2px black solid;
 }
 .color {
-    background-image: url();
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .background-image-main {
-    background-image: url(./img/Middleearthmap.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(./img/Middleearthmap.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 main {
-    position: relative;
+  position: relative;
 }
 .main-fade-top {
-    position: absolute;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));;
-    height: 120px;
-    width: 100%;
-    z-index: 50;
+  position: absolute;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  height: 120px;
+  width: 100%;
+  z-index: 50;
 }
 .main-fade-bottom {
-    position: absolute;
-    bottom: 0;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    ;
-    height: 120px;
-    width: 100%;
-    z-index: 50;
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  height: 120px;
+  width: 100%;
+  z-index: 50;
 }
 .player-one-UI {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    position: absolute;
-    height: 475px;
-    left: 136px;
-    top: 30px;
-    color: white;
-    z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  height: 475px;
+  left: 136px;
+  top: 30px;
+  color: white;
+  z-index: 3000;
 }
 .player-two-UI {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    position: absolute;
-    height: 475px;
-    right: 136px;
-    top: 30px;
-    color: white;
-    z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  height: 475px;
+  right: 136px;
+  top: 30px;
+  color: white;
+  z-index: 3000;
 }
 .player-title {
-    font-family: middleearth-Font;
-    font-size: 2.4rem;
-    text-decoration: underline;
-    color: rgb(233, 207, 170);
-    text-shadow: gold 0px 0px 20px;
-    -webkit-text-stroke: 2px gold;
-    margin-top: 5rem;
+  font-family: middleearth-Font;
+  font-size: 2.4rem;
+  text-decoration: underline;
+  color: rgb(233, 207, 170);
+  text-shadow: gold 0px 0px 20px;
+  -webkit-text-stroke: 2px gold;
+  margin-top: 5rem;
 }
 .dynamic-name {
-    font-family: middleearth-Font;
-    font-size: 6.8rem;
+  font-family: middleearth-Font;
+  font-size: 6.8rem;
 }
 .dynamic-name-p1 {
-    color: rgb(132, 255, 255);
-    text-shadow: aqua 0px 0px 20px;
-    -webkit-text-stroke: 2px rgb(0, 181, 181);
+  color: rgb(132, 255, 255);
+  text-shadow: aqua 0px 0px 20px;
+  -webkit-text-stroke: 2px rgb(0, 181, 181);
 }
 .dynamic-name-p2 {
-    color: rgb(255, 128, 128);
-    text-shadow: red 0px 0px 20px;
-    -webkit-text-stroke: 1px rgb(203, 1, 1);
+  color: rgb(255, 128, 128);
+  text-shadow: red 0px 0px 20px;
+  -webkit-text-stroke: 1px rgb(203, 1, 1);
 }
 .random-tile {
-    margin-top: auto;
-    height: 200px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 110px black;
+  margin-top: auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 110px black;
 }
 footer {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: black;
-    height: 42.4px
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+  height: 42.4px;
 }
 footer p {
-    color: rgb(177, 177, 177);
+  color: rgb(177, 177, 177);
 }
 .credit-one {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 .credit-one a {
-    color: darkgoldenrod;
+  color: darkgoldenrod;
 }
 .credit-two {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 .credit-two a {
-    color: darkgoldenrod;
+  color: darkgoldenrod;
 }
-@-webkit-keyframes glow-player-one  {
-    to {
+@-webkit-keyframes glow-player-one {
+  to {
     -webkit-box-shadow: 0 0 30px aqua;
     -moz-box-shadow: 0 0 30px aqua;
     box-shadow: 0 0 30px aqua;
-    }
+  }
 }
-        
+
 @-webkit-keyframes glow-player-two {
-    to {
+  to {
     -webkit-box-shadow: 0 0 30px red;
     -moz-box-shadow: 0 0 30px red;
     box-shadow: 0 0 30px red;
-    }
+  }
 }
 .player-one-active {
-    border: 1px solid transparent;
-    -webkit-animation: glow-player-one 2.0s infinite alternate;
-    -webkit-transition:  box-shadow 2.0s linear;
-    -moz-transition:  box-shadow 2.0s linear;
-    transition:  box-shadow 2.0s linear;
+  border: 1px solid transparent;
+  -webkit-animation: glow-player-one 2s infinite alternate;
+  -webkit-transition: box-shadow 2s linear;
+  -moz-transition: box-shadow 2s linear;
+  transition: box-shadow 2s linear;
 }
 .player-two-active {
-border: 1px solid transparent;
-    -webkit-animation: glow-player-two 2.0s infinite alternate;
-    -webkit-transition:  box-shadow 2.0s linear;
-    -moz-transition:  box-shadow 2.0s linear;
-    transition:  box-shadow 2.0s linear;
+  border: 1px solid transparent;
+  -webkit-animation: glow-player-two 2s infinite alternate;
+  -webkit-transition: box-shadow 2s linear;
+  -moz-transition: box-shadow 2s linear;
+  transition: box-shadow 2s linear;
 }
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 .start-game-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(0, 0, 0);
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   z-index: 2000;
-   height: 100%;
-   width: 100%;
-   z-index: 4000;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  z-index: 4000;
 }
 .start-modal-fade {
-    animation: fadeOut 1s;
+  animation: fadeOut 1s;
 }
 @-webkit-keyframes play-button {
-    to {
+  to {
     -webkit-box-shadow: 0 0 100px gold;
     -moz-box-shadow: 0 0 100px gold;
     box-shadow: 0 0 100px gold;
-    }
+  }
 }
 .play-button {
-    width: 350px;
-    height: 350px;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    font-family: middleearth-Font;
-    border: 5px gold solid;
-    color: rgb(233, 207, 170);
-    text-shadow: gold 0px 0px 20px;
-    -webkit-text-stroke: 2px gold;
-    font-size: 8.4rem;
-    -webkit-animation: play-button 3.0s infinite alternate;
-    -webkit-transition: border 3.0s linear, box-shadow 3.0s linear;
-    -moz-transition: border 3.0s linear, box-shadow 3.0s linear;
-    transition: border 3.0s linear, box-shadow 3.0s linear;
+  width: 350px;
+  height: 350px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  font-family: middleearth-Font;
+  border: 5px gold solid;
+  color: rgb(233, 207, 170);
+  text-shadow: gold 0px 0px 20px;
+  -webkit-text-stroke: 2px gold;
+  font-size: 8.4rem;
+  -webkit-animation: play-button 3s infinite alternate;
+  -webkit-transition: border 3s linear, box-shadow 3s linear;
+  -moz-transition: border 3s linear, box-shadow 3s linear;
+  transition: border 3s linear, box-shadow 3s linear;
 }
 .play-button:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    transition: .8s;
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.8s;
 }
 .event-cancel {
-    pointer-events: none;
+  pointer-events: none;
 }
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 .game-finished-modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.758);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2000;
-    height: 100%;
-    width: 100%;
-    z-index: 4000;
-    animation: fadeIn 1s;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.758);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  z-index: 4000;
+  animation: fadeIn 1s;
 }
 .dynamic-ending {
-    font-family: middleearth-Font;
-    font-size: 10.6rem;
-    color: rgb(233, 207, 170);
-    text-shadow: gold 0px 0px 20px;
-    -webkit-text-stroke: 2px gold
+  font-family: middleearth-Font;
+  font-size: 10.6rem;
+  color: rgb(233, 207, 170);
+  text-shadow: gold 0px 0px 20px;
+  -webkit-text-stroke: 2px gold;
 }
 .reset {
-    width: 170px;
-    height: 170px;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    font-family: middleearth-Font;
-    border: 2px gold solid;
-    color: rgb(233, 207, 170);
-    text-shadow: gold 0px 0px 20px;
-    font-size: 4.4rem;
-    -webkit-text-stroke: 2px gold;
-    -webkit-animation: play-button 3.0s infinite alternate;
-    -webkit-transition: border 3.0s linear, box-shadow 3.0s linear;
-    -moz-transition: border 3.0s linear, box-shadow 3.0s linear;
-    transition: border 3.0s linear, box-shadow 3.0s linear;
+  width: 170px;
+  height: 170px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  font-family: middleearth-Font;
+  border: 2px gold solid;
+  color: rgb(233, 207, 170);
+  text-shadow: gold 0px 0px 20px;
+  font-size: 4.4rem;
+  -webkit-text-stroke: 2px gold;
+  -webkit-animation: play-button 3s infinite alternate;
+  -webkit-transition: border 3s linear, box-shadow 3s linear;
+  -moz-transition: border 3s linear, box-shadow 3s linear;
+  transition: border 3s linear, box-shadow 3s linear;
 }
 .reset:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    transition: .8s;
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.8s;
 }
 .hidden {
-    display: none;
+  display: none;
 }
-    
-
-
-
-  
-
-    
-   
-    
-   
-
-
-    
-
-
-    
-
-    
-
-    
-    
-
-   
-
-    
-
-    
-    
-   
-   
-    
-
-   
-        
-    
-
-
-
-
-
-
-   
-
-    
-    
-    
-
-    
-    
-    
-
-   
-    
-
-
-
-
-    
-    
-    
-    
