@@ -19,14 +19,37 @@ header {
   position: relative;
   background: black;
 }
-.main-title {
+.main-title-style {
   text-align: center;
   font-family: middleearth-Font;
   font-size: 8.6rem;
+  margin: 1rem;
+}
+.in,
+.middle {
   color: rgb(233, 207, 170);
   text-shadow: gold 0px 0px 20px;
   -webkit-text-stroke: 2px gold;
+}
+/* Winter Styles */
+.winter {
+  text-align: center;
+  font-family: middleearth-Font;
+  font-size: 8.6rem;
+  color: rgb(165, 220, 242);
+  text-shadow: skyblue 0 0 20px;
+  -webkit-text-stroke: 2px rgb(62, 141, 172);
   margin: 1rem;
+}
+.summer {
+  color: rgb(185, 238, 185);
+  text-shadow: rgb(63, 172, 63) 0 0 20px;
+  -webkit-text-stroke: 2px rgb(10, 132, 10);
+}
+.spring {
+  color: rgb(165, 220, 242);
+  text-shadow: skyblue 0 0 20px;
+  -webkit-text-stroke: 2px rgb(62, 141, 172);
 }
 .title {
   color: white;
